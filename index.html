@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Replica de la página de inicio de Google creada con HTML5 y CSS3.">
+    <meta name="author" content="Edwin García">
+
+    <title>Google Clone | Landing Page</title>
+
+    <link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+
+        <nav class="nav-right">
+            <ul class="nav-menu">
+                <li><a href="#">Gmail</a></li>
+                <li><a href="#">Imágenes</a></li>
+                <li>
+                    <button class="btn-menu" aria-label="Menú de aplicaciones">
+                       <svg focusable="false" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path>
+                        </svg> 
+                    </button>
+                </li>
+                <li><a href="#" aria-label="Perfil de usuario"><img src="https://lh3.googleusercontent.com/ogw/AOLn63FnkKWo5X1TTb95JfaGH2AMsbwpr6ANmNN1PDxcDg=s32-c-mo" alt="Perfil" class="profile-img"></a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="main-container">
+
+        <section class="logo-section">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+        </section>
+
+        <form action="#" class="search-form" role="search">
+            <span class="search-icon">
+                <svg focusable="false" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="#9aa0a6" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+            </span>
+            <input type="text" aria-label="Buscar en Google" placeholder="Buscar en Google o escribir una URL">
+            
+            <section class="search-actions">
+                <button type="submit">Buscar con Google</button>
+                <button type="button">Voy a tener suerte</button>
+            </section>
+
+        </form>
+
+    </main>
+
+    <footer class="main-footer">
+        <section class="footer-location" aria-label="Ubicación">Colombia</section>
+
+        <nav class="footer-nav" aria-label="Enlaces de pie de página">
+
+            <ul class="footer-list">
+                <li><a href="#">Publicidad</a></li>
+                <li><a href="#">Negocios</a></li>
+                <li><a href="#">Acerca <del></del></a></li>
+                <li><a href="#">Cómo funciona la búsquedad</a></li>
+            </ul>
+
+            <ul class="footer-list footer-list-right">
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Condiciones</a></li>
+            </ul>
+
+        </nav>
+        
+    </footer>        
+    
+</body>
+</html>
