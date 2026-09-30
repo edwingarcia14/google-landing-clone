@@ -1,87 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Replica de la página de inicio de Google creada con HTML5 y CSS3.">
+    <meta name="description"
+        content="Google Search Suite & AI v2.0 - Réplica interactiva con autocompletado, búsqueda por voz, Lens y PWA.">
     <meta name="author" content="Edwin García">
+    <meta name="theme-color" content="#ffffff">
 
-    <title>Google Clone | Landing Page</title>
+    <title>Google Clone v2.0 | Search Suite & AI</title>
 
-    <link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
     <header class="main-header">
 
-        <nav class="nav-right">
+        <!-- Widget de Clima Local -->
+        <aside class="header-widget" id="headerWidget" aria-label="Información del clima local">
+            <span class="widget-icon" aria-hidden="true">☀️</span>
+            <span class="widget-temp">--°C</span>
+        </aside>
+
+        <!-- Navegación Superior Derecha -->
+        <nav class="nav-right" aria-label="Navegación principal">
             <ul class="nav-menu">
-                <li><a href="#">Gmail</a></li>
-                <li><a href="#">Imágenes</a></li>
-                <li>
-                    <button class="btn-menu" aria-label="Menú de aplicaciones">
-                       <svg focusable="false" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path>
-                        </svg> 
+                <li><a href="https://mail.google.com" target="_blank" rel="noopener noreferrer">Gmail</a></li>
+                <li><a href="https://images.google.com" target="_blank" rel="noopener noreferrer">Imágenes</a></li>
+
+                <!-- Desplegable Aplicaciones Google -->
+                <li class="nav-item-dropdown">
+                    <button type="button" class="btn-icon btn-menu" id="btnAppsMenu" 
+                        aria-label="Menú de aplicaciones de Google" aria-expanded="false" aria-controls="appsPopover">
+                        <svg focusable="false" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+                            <path fill="currentColor"
+                                d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                            </path>
+                        </svg>
                     </button>
+
+                    <section class="dropdown-popover apps-popover" id="appsPopover" aria-hidden="true">
+                        <nav class="apps-grid" aria-label="Acceso a servicios de Google">
+                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="app-item">
+                                <span class="app-icon" aria-hidden="true">🔴</span>
+                                <span class="app-label">YouTube</span>
+                            </a>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="app-item">
+                                <span class="app-icon" aria-hidden="true">📍</span>
+                                <span class="app-label">Maps</span>
+                            </a>
+                            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="app-item">
+                                <span class="app-icon" aria-hidden="true">📁</span>
+                                <span class="app-label">Drive</span>
+                            </a>
+                            <a href="https://meet.google.com" target="_blank" rel="noopener noreferrer" class="app-item">
+                                <span class="app-icon" aria-hidden="true">📹</span>
+                                <span class="app-label">Meet</span>
+                            </a>
+                            <a href="https://translate.google.com" target="_blank" rel="noopener noreferrer" class="app-item">
+                                <span class="app-icon" aria-hidden="true">🌐</span>
+                                <span class="app-label">Traductor</span>
+                            </a>
+                            <a href="https://photos.google.com" target="_blank" rel="noopener noreferrer" class="app-item">
+                                <span class="app-icon" aria-hidden="true">🖼️</span>
+                                <span class="app-label">Fotos</span>
+                            </a>
+                        </nav>
+                    </section>
                 </li>
-                <li><a href="#" aria-label="Perfil de usuario"><img src="https://lh3.googleusercontent.com/ogw/AOLn63FnkKWo5X1TTb95JfaGH2AMsbwpr6ANmNN1PDxcDg=s32-c-mo" alt="Perfil" class="profile-img"></a></li>
+
+                <!-- Desplegable Perfil Usuario -->
+                <li class="nav-item-dropdown">
+                    <button type="button" class="btn-avatar" id="btnProfileMenu" 
+                        aria-label="Menú de perfil de usuario" aria-expanded="false" aria-controls="profilePopover">
+                        <img src="/assets/brand/avatar.jpeg" alt="Perfil Edwin García" class="profile-img">
+                    </button>
+
+                    <section class="dropdown-popover profile-popover" id="profilePopover" aria-hidden="true">
+                        <header class="profile-header">
+                            <img src="/assets/brand/avatar.jpeg" alt="Edwin García" class="profile-img-large">
+                            <p class="profile-name">Edwin García</p>
+                            <p class="profile-email">
+                                <a href="https://edwingarcia-dev.vercel.app/" target="_blank" rel="noopener noreferrer">
+                                    edwingarcia-dev.vercel.app
+                                </a>
+                            </p>
+                        </header>
+                        <footer class="profile-actions">
+                            <button type="button" class="btn-profile-opt" id="btnToggleTheme" aria-pressed="false">Modo Oscuro: Off</button>
+                            <button type="button" class="btn-profile-opt" id="btnClearHistory">Limpiar Historial</button>
+                        </footer>
+                    </section>
+                </li>
             </ul>
         </nav>
 
     </header>
 
+    <!-- Ámbitos y Herramientas de Búsqueda Principal -->
     <main class="main-container">
 
-        <section class="logo-section">
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
-        </section>
+        <figure class="logo-section">
+            <img src="/assets/img/google-logo.png" alt="Google" class="google-logo" width="272" height="92">
+        </figure>
 
-        <form action="#" class="search-form" role="search">
-            <span class="search-icon">
-                <svg focusable="false" viewBox="0 0 24 24" width="20" height="20">
-                    <path fill="#9aa0a6" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-            </span>
-            <input type="text" aria-label="Buscar en Google" placeholder="Buscar en Google o escribir una URL">
-            
-            <section class="search-actions">
-                <button type="submit">Buscar con Google</button>
-                <button type="button">Voy a tener suerte</button>
+        <form class="search-form" id="searchForm" role="search" action="#" method="GET" autocomplete="off">
+            <section class="search-input-wrapper">
+
+                <span class="search-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="#9aa0a6"
+                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                        </path>
+                    </svg>
+                </span>
+
+                <input type="text" id="searchInput" name="q" aria-label="Buscar en Google"
+                    placeholder="Buscar en Google o escribir una URL" autofocus required>
+
+                <aside class="search-tools">
+                    <button type="button" class="btn-icon tool-btn" id="btnVoiceSearch" title="Búsqueda por voz"
+                        aria-label="Búsqueda por voz">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                            <path fill="#4285f4"
+                                d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"></path>
+                            <path fill="#34a853" d="M11 18.92h2V22h-2z"></path>
+                            <path fill="#fbbc05"
+                                d="M7 11H5c0 1.93.78 3.68 2.05 4.95l1.41-1.41C7.56 13.63 7 12.38 7 11z"></path>
+                            <path fill="#ea4335"
+                                d="M12 17c-2.76 0-5.26-1.12-7.07-2.93l-1.41 1.41C5.54 17.5 8.6 19 12 19c3.4 0 6.46-1.5 8.48-3.52l-1.41-1.41C17.26 15.88 14.76 17 12 17z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <button type="button" class="btn-icon tool-btn" id="btnLensSearch"
+                        title="Búsqueda por imágenes (Lens)" aria-label="Búsqueda por imágenes">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                            <path fill="#4285f4" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                            <path fill="#ea4335"
+                                d="M19 4h-3.17L14.41 2H9.59L8.17 4H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V6h3.88l1.42-2h3.4l1.42 2H19v12z">
+                            </path>
+                        </svg>
+                    </button>
+                </aside>
+
+                <section class="suggestions-dropdown" id="suggestionsDropdown" aria-hidden="true">
+                    <ul class="suggestions-list" id="suggestionsList" role="listbox" aria-label="Sugerencias de búsqueda"></ul>
+                </section>
+
             </section>
 
+            <section class="search-actions">
+                <button type="submit" id="btnSearch">Buscar con Google</button>
+                <button type="button" id="btnLucky">Voy a tener suerte</button>
+            </section>
         </form>
+
+        <!-- Modal Google Lens -->
+        <article class="lens-modal" id="lensModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lensTitle" tabindex="-1">
+            <section class="lens-content">
+                <button type="button" class="btn-close-modal" id="btnCloseLens" aria-label="Cerrar modal">&times;</button>
+                <h3 id="lensTitle">Arrastra una imagen aquí o pega una URL</h3>
+                <section class="drag-drop-area" id="dragDropArea">
+                    <p>Arrastra tu archivo aquí</p>
+                    <span>o</span>
+                    <input type="url" id="lensUrlInput" aria-label="Enlace de imagen para Google Lens" placeholder="Pega el enlace de una imagen...">
+                </section>
+            </section>
+        </article>
 
     </main>
 
     <footer class="main-footer">
-        <section class="footer-location" aria-label="Ubicación">Colombia</section>
+        <section class="footer-location" aria-label="Ubicación" id="footerLocation">Colombia</section>
 
         <nav class="footer-nav" aria-label="Enlaces de pie de página">
-
             <ul class="footer-list">
-                <li><a href="#">Publicidad</a></li>
-                <li><a href="#">Negocios</a></li>
-                <li><a href="#">Acerca <del></del></a></li>
-                <li><a href="#">Cómo funciona la búsquedad</a></li>
+                <li><a href="https://ads.google.com/ups/routing?source=206&subid=xs-ip-gemini-adlt" target="_blank" rel="noopener noreferrer">Publicidad</a></li>
+                <li><a href="https://www.google.com/services" target="_blank" rel="noopener noreferrer">Negocios</a></li>
+                <li><a href="https://about.google" target="_blank" rel="noopener noreferrer">Acerca de</a></li>
+                <li><a href="https://google.com/search/howsearchworks" target="_blank" rel="noopener noreferrer">Cómo funciona la Búsqueda</a></li>
             </ul>
 
             <ul class="footer-list footer-list-right">
-                <li><a href="#">Privacidad</a></li>
-                <li><a href="#">Condiciones</a></li>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacidad</a></li>
+                <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Condiciones</a></li>
             </ul>
-
         </nav>
-        
-    </footer>        
-    
+
+        <section class="footer-brand-credits" aria-label="Créditos del desarrollador">
+            <p class="footer-copyright">&copy; 2026 Google Landing Clone</p>
+
+            <aside class="brand-signature">
+                <span class="developer-text">Desarrollado por <strong>Edwin García</strong></span>
+                <img class="logo-brand" src="/assets/brand/logo.png" alt="Marca Edwin García" width="24" height="24">
+            </aside>
+        </section>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+
 </body>
+
 </html>
